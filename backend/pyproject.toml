@@ -1,0 +1,65 @@
+[tool.pytest.ini_options]
+python_files = 'tests.py test_*.py tests_*.py'
+addopts = '--numprocesses=auto'
+DJANGO_SETTINGS_MODULE = 'conf.settings'
+filterwarnings = [
+	# To ignore a warning: copy begging of the warning message and
+	# escape special characters (like brackets) with '\\', e.g.:
+	#
+	#	"ignore:django.utils.translation.ugettext_lazy\\(\\) is deprecated in favor of",
+	#
+	"ignore:::^(?!apps)",
+	"error:::^apps",
+]
+
+[tool.coverage.report]
+fail_under = 80.0
+
+[tool.coverage.run]
+include = [
+	'apps/*',
+	'conf/settings.py',
+]
+omit = [
+	'*/migrations/*',
+	'*/tests.py',
+]
+
+[tool.flakehell]
+exclude = [
+	'.git',
+	'.idea',
+	'.pytest_cache',
+	'docker',
+	'docs',
+	'*.egg-info',
+	'migrations',
+	'conf'
+]
+format = "grouped"
+show_source = true
+max_line_length = 120
+max_complexity = 7
+import_order_style = 'google'
+include = 'apps/'
+application_import_names = 'apps'
+
+[tool.flakehell.plugins]
+flake8-black = ['+*']
+flake8-bandit = ['+*']
+flake8-blind-except = ['+*']
+flake8-bugbear = ['+*']
+flake8-comprehensions = ['+*']
+flake8-django = ['+*', '-DJ09', '-DJ05']
+flake8-functions = ['+*']
+flake8-print = ['+*']
+flake8-type-annotations = ['+*']
+flake8-variables-names = ['+*']
+flake8_builtins = ['+*']
+flake8-import-order=['+*', '-I101']
+flake8-logging-format = ['+*']
+mccabe = ['+*']
+pep8-naming = ['+*']
+pycodestyle=['+*', '-W503']
+pyflakes = ['+*']
+pylint = ['+*']

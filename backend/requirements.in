@@ -1,0 +1,10 @@
+psycopg2-binary
+uvicorn
+gunicorn
+Django
+typing-extensions
+model-bakery
+pytest
+pytest-django
+pytest-xdist
+graphene-django

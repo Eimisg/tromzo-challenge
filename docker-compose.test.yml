@@ -1,0 +1,24 @@
+version: '3'
+services:
+    db:
+        image: postgres:latest
+        environment:
+            POSTGRES_USER: django
+            POSTGRES_PASSWORD: django
+    django:
+        build: ./backend
+        volumes:
+            - ./backend:/app
+            - ./backend/media:/media
+        command: ./bin/test.sh
+        ports:
+            - "8082:8082"
+        environment:
+            DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_DEV}
+            DB_NAME: django
+            DB_USER: django
+            DB_PASSWORD: django
+            DB_HOST: db
+            DB_PORT: 5432
+        depends_on:
+            - db
