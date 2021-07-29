@@ -13,11 +13,11 @@ services:
             - "9432:5432"
     django:
         build: ./backend
+        command: ./bin/startup.sh
         volumes:
             - ./backend:/app
             - ./backend/media:/app/media
             - ./static/:/app/static
-        command: ./bin/develop.sh
         ports:
             - "8000:8000"
         environment:

@@ -26,6 +26,39 @@ Feel free to use standard libraries and pick your choice of language.
 * Gunicorn/Uvicorn
 * Docker
 
+## Dependencies
+
+Python dependencies can be installed via **pip** or **piptools**
+
+```
+pip install -r requirements.txt 
+```
+```
+pip-sync
+```
+
+## Dependencies
+
+Python dependencies can be installed via **pip** or **piptools**
+
+```
+pip install -r requirements.txt 
+```
+```
+pip-sync
+```
+
+## Start development server
+
+Local Django server can be started via 
+```
+python manage.py runserver
+```
+On Docker
+```
+docker-compose -d
+```
+
 ## Tests
 
 ```sh

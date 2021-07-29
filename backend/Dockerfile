@@ -21,4 +21,4 @@ FROM $IMAGE as build
 RUN mkdir /app
 COPY . /app/
 WORKDIR /app/
-CMD ["gunicorn", "asgi:application", "-k", "uvicorn.workers.UvicornWorker"]
+CMD ["gunicorn", "asgi:application", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0"]
